@@ -52,7 +52,6 @@ public class Screen {
             for (int xTile = xOffset >> 3; xTile <= (xOffset + WIDHT) >> 3; xTile++) {
                     int xMin = xTile * 8 - xOffset;
                     int xMax = xMin + 8;
-                    //verifica os limites de x
                     if (xMin < 0)
                             xMin = 0;
                     if (xMax > WIDHT)
