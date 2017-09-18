@@ -7,7 +7,7 @@ import java.awt.image.DataBufferInt;
 
 public class GamePanel extends Canvas implements Runnable{
 	
-	public  int WIDTH, HEIGHT;
+	public  int WIDTH, HEIGHT, SCALE;
 	private boolean running;
 	
 	public Graphics g;
@@ -20,14 +20,15 @@ public class GamePanel extends Canvas implements Runnable{
 	public InputHandler input;
 	private Screen screen;
 	
-	public GamePanel(int width, int height) {
+	public GamePanel(int width, int height, int scale) {
 		/*
 		 * Ignora os requests de paint/repaint do sistema operacional
 		 * */
+		SCALE = scale;
 		WIDTH = width;
 		HEIGHT = height;
-		setMinimumSize(new Dimension(WIDTH,HEIGHT));
-		setPreferredSize(new Dimension(WIDTH,HEIGHT));
+		setMinimumSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
+		setPreferredSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
 		setIgnoreRepaint( true );
 	}
 	
