@@ -34,6 +34,19 @@ public class SpriteSheet {
 			//E, alem disso, vamos ter apenas 4 cores, o resto das cores será adicionado
 			//"na ideia"... por código. Cada byte de cor tem 4 bits. 2^2 x 2 ^6 = 2 ^8
 			//Logo, 255 (2 ^ 8 ) / x = 4   ->  x= 64
+			
+			/*
+			 * Para calcular as cores fica facil então: 
+			 * 
+			 * Há 4 cores, logo:
+			 * 255 é uma cor inteira, logo, dividimos por 3 (porque 0 ja vai ser preto)
+			 * 
+			 * 255/3 *0 = 1 cor : (preto) #000000
+			 * 255/3 *1 = 2 cor : #aaaaaa
+			 * 255/3 *2 = 3 cor : #555555
+			 * 255/3 *3 = 4 a "cor": #ffffff (branco)
+			 * 
+			 * */
 			pixels[i] = (pixels[i] & 0xFF)/64; 
 			//
 		}
