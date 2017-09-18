@@ -12,7 +12,7 @@ public class Frame extends JFrame {
 		setVisible(true);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		gp = new GamePanel(WIDTH*SCALE,HEIGHT*SCALE);
+		gp = new GamePanel(WIDTH,HEIGHT, SCALE);
 		add(gp);
 		setLayout(new GridLayout(1,1,0,0));
 		pack();
