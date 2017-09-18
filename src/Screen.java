@@ -67,7 +67,7 @@ public class Screen {
                      *  
                      *  Um exemplo com a "matriz" acima, seria o MAP de tamanho = 9. (largura 3)
                      *  Mas as cores e as tiles estão em um vetor. 
-                     *  Então a MASK serve pra indicar qual "indice" é a "proxima linha"
+                     *  Então a MASK serve pra garantir que nunca vai tentar pegar um indice fora do tamanho da tile
                      *  
                      *  Na matriz exemplo, MAP_WIDTH = 3, MASK = 2. Então, a coordenada do elemento 8 é, por exemplo:
                      *  
