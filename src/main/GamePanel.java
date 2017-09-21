@@ -6,21 +6,19 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.util.Random;
 
 import javax.swing.JFrame;
-import javax.swing.border.TitledBorder;
 
+import entity.Player;
 import level.Level;
 import level.RandomLevel;
 
 public class GamePanel extends Canvas implements Runnable {
 
     private Thread thread;
-    // gamestuff
+    // gameconfig
     private static final int WIDTH = 160, HEIGHT = WIDTH / 12 * 9, SCALE = 3;
     private boolean running = true;
-    private Level level;
 
     // imagestuff
     private Graphics g;
@@ -29,16 +27,16 @@ public class GamePanel extends Canvas implements Runnable {
     public int[] pixels;
     private Screen screen;
 
-    // ex
-    int x, y;
+    // gamestuff
+    private Level level;
     KeyHandler key;
+    private Player player;
 
     public GamePanel() {
         // TODO Auto-generated constructor stub
         thread = new Thread(this);
         setSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 
-        level = new RandomLevel(64, 64);
     }
 
     public void initialize() {
@@ -48,9 +46,9 @@ public class GamePanel extends Canvas implements Runnable {
         screen = new Screen(WIDTH, HEIGHT, this.pixels);
 
         key = new KeyHandler(this);
-
-        x = 0;
-        y = 0;
+        level = new RandomLevel(64, 64);
+        player = new Player(key);
+        
         this.createBufferStrategy(3);
         g = null;
     }
@@ -61,8 +59,7 @@ public class GamePanel extends Canvas implements Runnable {
             if (!buffer.contentsLost()) {
                 g = buffer.getDrawGraphics();
                 screen.clear();
-                // screen.render(x, y);
-                level.render(x, y, screen);
+                level.render(player.x, player.y, screen);
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
                 buffer.show();
             }
@@ -72,15 +69,7 @@ public class GamePanel extends Canvas implements Runnable {
     }
 
     public void update() {
-        if (key.up.isPressed())
-            y--;
-        if (key.down.isPressed())
-            y++;
-        if (key.left.isPressed())
-            x--;
-        if (key.right.isPressed())
-            x++;
-
+        player.update();
     }
 
     public void run() {
@@ -104,7 +93,7 @@ public class GamePanel extends Canvas implements Runnable {
             frames++;
             if (System.currentTimeMillis() - startMesure > 1000) {
                 startMesure += 1000;
-                //System.out.println("frames: " + frames + " updates: " + updates);
+                // System.out.println("frames: " + frames + " updates: " + updates);
                 frames = 0;
                 updates = 0;
             }
