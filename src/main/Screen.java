@@ -59,12 +59,17 @@ public class Screen {
                 // xAbsoluto (posição yxabsoluta = relação ao mapa) da tile
                 int txa = x + px;
                 // apenas renderiza as tiles "visiveis" dentro do "tamanho" da tela
+                // fiz essa modificação pra poder renderizar mais uma coluna de tiles à esquerda
                 if (txa < -sprite.SIZE || txa >= width || tya < 0 || tya >= height)
                     break;
                 if (txa < 0)
                     txa = 0;
                 // dado a tile absoluta, vai receber ser preenchida com a tile. bem simples
-                pixels[txa + tya * width] = sprite.pixels_sprite[x + y * sprite.SIZE];
+                // tentando ignorar cor 0xff00ff
+                //TO-DO
+                if (sprite.pixels_sprite[x + y * sprite.SIZE] != 0xff00ff) {
+                    pixels[txa + tya * width] = sprite.pixels_sprite[x + y * sprite.SIZE];
+                }
 
             }
         }
@@ -89,6 +94,7 @@ public class Screen {
                 if (txa < 0)
                     txa = 0;
                 // dado a tile absoluta, vai receber ser preenchida com a tile. bem simples
+
                 pixels[txa + tya * width] = tile.sprite.pixels_sprite[x + y * tile.sprite.SIZE];
 
             }
