@@ -67,7 +67,7 @@ public class Screen {
                 // dado a tile absoluta, vai receber ser preenchida com a tile. bem simples
                 // tentando ignorar cor 0xff00ff
                 //TO-DO
-                if (sprite.pixels_sprite[x + y * sprite.SIZE] != 0xff00ff) {
+                if (sprite.pixels_sprite[x + y * sprite.SIZE] != 0xffff00ff) {
                     pixels[txa + tya * width] = sprite.pixels_sprite[x + y * sprite.SIZE];
                 }
 
@@ -94,7 +94,7 @@ public class Screen {
                 if (txa < 0)
                     txa = 0;
                 // dado a tile absoluta, vai receber ser preenchida com a tile. bem simples
-
+                    
                 pixels[txa + tya * width] = tile.sprite.pixels_sprite[x + y * tile.sprite.SIZE];
 
             }

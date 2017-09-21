@@ -11,14 +11,29 @@ public class Sprite {
 	public static Sprite grass = new Sprite(0, 0, 16, SpriteSheet.tiles);
 	
 	public static Sprite nullSprite = new Sprite(16, 0x1b87e0);
-	/*public static Sprite[] player = new Sprite[] {new Sprite(0,13,16,SpriteSheet.tiles),
-	                                              new Sprite(0,14,16,SpriteSheet.tiles),
-	                                              new Sprite(0,15,16,SpriteSheet.tiles) 
-	                                             };*/
+
+	public static Sprite player_foward[] = new Sprite[] {
+	        new Sprite(2,15,16, SpriteSheet.tiles),//cima
+	        new Sprite(2,14,16, SpriteSheet.tiles),//direita
+	        new Sprite(2,13,16, SpriteSheet.tiles),//baixo
+	};
+	public static Sprite player_backwards[] = new Sprite[] {
+	        new Sprite(3,15,16, SpriteSheet.tiles),//cima
+	        new Sprite(3,14,16, SpriteSheet.tiles),//direita
+	        new Sprite(3,13,16, SpriteSheet.tiles),//baixo
+	};
+	public static Sprite player_left[] = new Sprite[] {
+	        new Sprite(1,15,16, SpriteSheet.tiles),//cima
+	        new Sprite(1,14,16, SpriteSheet.tiles),//direita
+	        new Sprite(1,13,16, SpriteSheet.tiles),//baixo
+	};
 	
-	public static Sprite player0 = new Sprite(0,13,16,SpriteSheet.tiles);
-	public static Sprite player1 = new Sprite(0,14,16,SpriteSheet.tiles);
-	public static Sprite player2 = new Sprite(0,15,16,SpriteSheet.tiles);
+	public static Sprite player_right[] = new Sprite[] {
+	        new Sprite(0,15,16, SpriteSheet.tiles),//cima
+	        new Sprite(0,14,16, SpriteSheet.tiles),//direita
+	        new Sprite(0,13,16, SpriteSheet.tiles),//baixo
+	};
+	
 	
 	public Sprite(int x, int y, int size, SpriteSheet sheet) {
 		// TODO Auto-generated constructor stub

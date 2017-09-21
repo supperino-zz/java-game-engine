@@ -14,11 +14,12 @@ public abstract class Mob extends Entity {
     // 2 \/
     // 3 <
     public void move(int xm, int ym) {
+        moving = true;
         if (xm > 0)
             dir = 1;
         if (xm < 0)
             dir = 3;
-        if (ym > 0)
+        if (ym < 0)
             dir = 2;
         if (ym > 0)
             dir = 0;
@@ -30,7 +31,7 @@ public abstract class Mob extends Entity {
     }
 
     public void update() {
-
+        
     }
 
     private boolean collision() {
