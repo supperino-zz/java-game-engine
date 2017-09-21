@@ -48,7 +48,7 @@ public class GamePanel extends Canvas implements Runnable {
         key = new KeyHandler(this);
         level = new RandomLevel(64, 64);
         player = new Player(key);
-        
+
         this.createBufferStrategy(3);
         g = null;
     }
@@ -59,7 +59,12 @@ public class GamePanel extends Canvas implements Runnable {
             if (!buffer.contentsLost()) {
                 g = buffer.getDrawGraphics();
                 screen.clear();
-                level.render(player.x, player.y, screen);
+
+                int xScroll = player.x - screen.width / 2;
+                int yScroll = player.y - screen.height / 2;
+
+                level.render(xScroll, yScroll, screen);
+                player.render(screen);
                 g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
                 buffer.show();
             }

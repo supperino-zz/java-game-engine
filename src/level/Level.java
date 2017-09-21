@@ -57,6 +57,9 @@ public abstract class Level {
         if (map_tiles[x + y * width] == 0) {
             return Tile.grass;
         }
+        if (map_tiles[x + y * width] == 1) {
+            return Tile.grass2;
+        }
         return Tile.nulltile;
     }
 

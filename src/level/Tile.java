@@ -10,6 +10,7 @@ public abstract class Tile {
     protected boolean solid;
 
     // nao muda a tile do tipo Grass
+    public static Tile grass2 = new GrassTile(Sprite.grass2);
     public static Tile grass = new GrassTile(Sprite.grass);
     public static Tile nulltile = new nullTile(Sprite.nullSprite);
 

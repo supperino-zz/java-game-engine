@@ -2,6 +2,7 @@ package main;
 
 import java.util.Random;
 
+import entity.Player;
 import level.Tile;
 
 public class Screen {
@@ -45,6 +46,27 @@ public class Screen {
     public void clear() {
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] = 0x000000;
+        }
+    }
+
+    public void renderPlayer(int px, int py, Sprite sprite) {
+        px -= xOffset;
+        py -= yOffset;
+        for (int y = 0; y < sprite.SIZE; y++) {
+            // yAbsoluto (posição y absoluta = relação ao mapa) da tile
+            int tya = y + py;
+            for (int x = 0; x < sprite.SIZE; x++) {
+                // xAbsoluto (posição yxabsoluta = relação ao mapa) da tile
+                int txa = x + px;
+                // apenas renderiza as tiles "visiveis" dentro do "tamanho" da tela
+                if (txa < -sprite.SIZE || txa >= width || tya < 0 || tya >= height)
+                    break;
+                if (txa < 0)
+                    txa = 0;
+                // dado a tile absoluta, vai receber ser preenchida com a tile. bem simples
+                pixels[txa + tya * width] = sprite.pixels_sprite[x + y * sprite.SIZE];
+
+            }
         }
     }
 
