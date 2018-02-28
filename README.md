@@ -1,5 +1,5 @@
 # Simple Java active-rendering Game
---- |![Imagem](https://image.ibb.co/bx7bvx/render_engine.png)| ---
+--- |---![Imagem](https://image.ibb.co/bx7bvx/render_engine.png)---| ---
 
 
 
