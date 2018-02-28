@@ -17,4 +17,4 @@ Studying rendering methods - in this, I replicated the method that "notch" used 
 **run:**
 `java -jar render_engine.jar`
 
-`W`  `A` `S` `D` keys to move
+`W`  `A` `S` `D` *keys to move*
