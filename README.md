@@ -1,6 +1,6 @@
 # Simple Java active-rendering Game
---- |---![Imagem](https://image.ibb.co/bx7bvx/render_engine.png)---| ---
 
+![Imagem](https://image.ibb.co/bx7bvx/render_engine.png)
 
 
 Studying rendering methods - in this, I replicated the method that "notch" used in his games for Ludum Dare
